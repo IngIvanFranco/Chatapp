@@ -1,0 +1,22 @@
+<div class="container">
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title">Chat del: {{date | date:'dd-MM-yyyy'}}</h5>
+    </div>
+    <div class="card-body">
+        <div class="chatcontainer">
+       <p [ngClass]="{'local':m.type===1,'remote':m.type===2}" class="local" *ngFor="let m of chat.chats" >{{m.txt}}</p>
+       
+    </div>
+    </div>
+    <div class="card-footer ">
+        <form  (ngSubmit)="enviarmsm()">
+            <div class="row">
+                <input type="text" name="txt"  [(ngModel)]="txt" [ngModelOptions]="{standalone:true}" class="form-control ">
+            </div>
+        
+    </form>
+    </div>
+
+</div>
+</div>

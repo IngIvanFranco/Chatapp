@@ -1,0 +1,31 @@
+.chatcontainer{
+padding: 30px;
+width: 100%;
+height: 60vh;
+min-height: 100%;
+display: flex;
+flex-direction: column;
+padding-bottom: 70px;
+background-color: ghostwhite;
+}
+
+.local{
+padding: 20px;
+border-radius: 20px;
+background-color: darkcyan;
+max-width: 80%;
+color: white;
+font-size: 17px;
+align-self: flex-end;
+}
+
+.remote{
+
+    padding: 20px;
+    border-radius: 20px;
+    background-color: darkorchid;
+    max-width: 80%;
+    color: white;
+    font-size: 17px;
+    align-self: flex-start;
+}
