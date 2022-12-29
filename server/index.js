@@ -9,12 +9,17 @@ const io = require('socket.io')(http,{
 })
 
 io.on('connection',(socket)=>{
-    console.log('nuevo usr conectado');
+   
 
     socket.on('send',(mes)=>{
         console.log(mes.txt);
 
        socket.broadcast.emit("respuesta",mes)
+    })
+
+    socket.on('avisarinicio',(datos)=>{
+console.log(`${datos.username} ha iniciado sesion`);
+socket.broadcast.emit('infosesion',datos)
     })
 })
 

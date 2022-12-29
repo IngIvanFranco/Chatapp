@@ -1,5 +1,7 @@
 export interface Imsm{
    
     txt:string,
-    type:number
+    type:number,
+    username:string,
+    hora:Date
 }

@@ -1,18 +1,24 @@
 <div class="container">
 <div class="card">
     <div class="card-header">
-        <h5 class="card-title">Chat del: {{date | date:'dd-MM-yyyy'}}</h5>
+        <h5 class="card-title text-success text-center">CHATBAN</h5>
+   <input type="text" class="form-control " placeholder="Username" name="username"  [(ngModel)]="username">
     </div>
-    <div class="card-body">
-        <div class="chatcontainer">
-       <p [ngClass]="{'local':m.type===1,'remote':m.type===2}" class="local" *ngFor="let m of chat.chats" >{{m.txt}}</p>
+    <div class="card-body" #scrollMe [scrollTop]="scrollMe.scrollHeight">
        
-    </div>
+       <ul class="chatcontainer"  *ngFor="let m of chat.chats" >
+        <li [ngClass]="{'spanl':m.type===1,'spanr':m.type===2}"><span>{{m.username | uppercase}}</span></li>
+        <li [ngClass]="{'local':m.type===1,'remote':m.type===2}">{{m.txt}}    </li>
+        <li [ngClass]="{'spanl':m.type===1,'spanr':m.type===2}">{{m.hora | date:'hh:mm:ss'}}</li>
+        
+    </ul>
+       
+
     </div>
     <div class="card-footer ">
         <form  (ngSubmit)="enviarmsm()">
             <div class="row">
-                <input type="text" name="txt"  [(ngModel)]="txt" [ngModelOptions]="{standalone:true}" class="form-control ">
+                <input type="text" name="txt"  [(ngModel)]="txt" [ngModelOptions]="{standalone:true}" placeholder="Mensaje" class="form-control ">
             </div>
         
     </form>
