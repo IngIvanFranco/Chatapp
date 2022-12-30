@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ChatService } from 'src/app/service/chat.service';
-import { Confirm, Notify } from 'notiflix';
+import { Confirm, Loading, Notify } from 'notiflix';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-chat',
@@ -10,8 +11,11 @@ import { Confirm, Notify } from 'notiflix';
 export class ChatComponent implements OnInit {
   txt: string =''
   date:Date = new Date()
-  username: string =""
-  constructor(public chat:ChatService) {
+  username: any =""
+  constructor(
+    public chat:ChatService, 
+    public rutas:Router
+    ) {
    
    }
 
@@ -19,6 +23,9 @@ export class ChatComponent implements OnInit {
    this.iniciarsesion()
   }
   iniciarsesion() {
+
+    if (localStorage.getItem('user')==  undefined) {
+      
     Confirm.prompt(
       'Hola Bienvenido A Nuestro ChatBan',
       'Ingresa tu Nikname',
@@ -29,14 +36,22 @@ export class ChatComponent implements OnInit {
       this.asignarusername(nameuser1)
       
       },()=>{
-        this.asignarusername("el pendejo no puso nombre")
+      this.rutas.navigateByUrl('/')
       }
       
      )
+    }else{
+this.asignarusername(localStorage.getItem('user'))
+
+    }
+
   }
-  asignarusername(nameuser1: string) {
+  asignarusername(nameuser1: any) {
   this.username = nameuser1
+  localStorage.setItem('user',nameuser1)
   this.chat.iniciarsesion(nameuser1)
+  Loading.circle()
+  Loading.remove(1923)
   }
 
   enviarmsm(){

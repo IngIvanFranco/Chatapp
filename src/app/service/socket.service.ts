@@ -12,9 +12,9 @@ io = io("http://54.172.72.85/",{
   withCredentials:true,
   autoConnect:true
 })
-
-
 /*
+
+
 io = io("http://localhost:3000/",{
   withCredentials:true,
   autoConnect:true

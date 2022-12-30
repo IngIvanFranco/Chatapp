@@ -4,7 +4,8 @@ import { ChatComponent } from './componentes/chat/chat.component';
 import { IndexComponent } from './componentes/index/index.component';
 
 const routes: Routes = [
-  {path:'',component:ChatComponent},
+  {path:'',component:IndexComponent},
+  {path:'chat', component:ChatComponent}
   
 ];
 

@@ -50,15 +50,14 @@ this.chats.push(msm);
    }
 
    onInformarsesion(){
-    this.socket.io.on('infosesion',(datos)=>{
-      
+    this.socket.io.on('infosesion',(datos)=>{      
     Notify.success(`${datos.username } ha iniciado sesion`,{
       position:'right-top'
-    
-     
-    })
+        })
     const audio = new Audio('http://54.174.81.71/Chat/assets/sonidos/session.mp3') 
     audio.play();
     })
+
+    
    }
 }
