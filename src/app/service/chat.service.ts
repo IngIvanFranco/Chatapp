@@ -35,7 +35,7 @@ this.chats.push(msm);
     Notify.info(`${mes.username } ha escrito un nuevo mensaje`,{
       position:'left-top'
          })
-    const audio = new Audio('http://54.174.81.71/Chat/assets/sonidos/msn-alert.mp3') 
+    const audio = new Audio('http://localhost:4200/assets/sonidos/msn-alert.mp3') 
     audio.play();
    })
    }
@@ -54,7 +54,7 @@ this.chats.push(msm);
     Notify.success(`${datos.username } ha iniciado sesion`,{
       position:'right-top'
         })
-    const audio = new Audio('http://54.174.81.71/Chat/assets/sonidos/session.mp3') 
+    const audio = new Audio('http://localhost:4200/assets/sonidos/session.mp3') 
     audio.play();
     })
 
